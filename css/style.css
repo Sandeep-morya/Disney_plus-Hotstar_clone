@@ -1,0 +1,95 @@
+.loader,.loader2{
+    width: 60%;
+    height: 80vh;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+.loader2{
+    height: 20vh;margin: auto;
+    width: 20%;
+    display: none;
+}
+#carousel-container{
+    position: relative;
+    font-family: Tahoma;
+    width: 100%;
+    height: 400px;
+    overflow-x: hidden;
+}
+.carousel{
+    width: 90%;
+    display: flex;
+    height: 100%;
+    margin: auto;
+    position: relative;
+}
+.slider{
+    flex: 0 0 auto;
+    margin-right: 30px;
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    transition: all 1s;
+    overflow: hidden;
+}
+.slider img{
+    width: 70%;
+    min-height: 100%;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+}
+.slide-content{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    z-index: 2;
+    background:linear-gradient(90deg ,#030b17 80%, #0c111b00);
+    color:white;
+}
+.title{
+    padding-left: 50px;
+    text-transform: capitalize;
+    margin-top: 80px;
+}
+.des{
+    width: 70%;
+    line-height: 30px;
+    padding-left: 50px;
+    margin-top: 50px;
+    opacity: 0.8;
+}
+h3{
+    font-family: tahoma;
+    color:white;
+}
+#movies{
+    padding-top: 10px;
+    display: none;
+}
+.card{
+    margin-left: 30px;
+    margin-top: 30px;
+}
+.movie-list{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    gap: 10px;
+}
+.movie-list img{
+    width: 100%;
+    border-radius: 0.5em;
+    overflow: hidden;
+    transition: all 0.3s; 
+}
+.card img:hover{
+    width: 12vw;
+    margin: -30px;z-index: 12;
+}
