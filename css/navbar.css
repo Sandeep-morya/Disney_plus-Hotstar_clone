@@ -10,6 +10,14 @@
     background: #131927;
     /* overflow-x: hidden; */
 }
+body::-webkit-scrollbar {
+    width: 10px;
+    background: transparent;
+  }
+  body::-webkit-scrollbar-thumb {
+    border-radius: 3em;
+    background: white;
+  }
 .fclr{
     color:#c2c1c0;
 }
