@@ -1,0 +1,65 @@
+.controller{
+    width: 92vw;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items:baseline;
+    margin-bottom: 10px;
+}
+.controller select{
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background-color: #34516e;
+    color: white;
+}
+.message{
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-top: 50px;
+    color:rgba(255, 255, 255, 0.734);
+}
+.query{
+    color: white;
+    text-transform: capitalize;
+}
+
+#append-movies{
+    width: 92vw;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 13px;
+}
+.card{
+    overflow: hidden;
+    border-radius: 5px;
+    display: grid;
+    color: white;
+}
+.card>img{
+    width: 100%;
+    aspect-ratio: 2/3;
+}
+.card>.movie-des{
+    background:#020811;
+    text-align: center;
+    box-shadow: 0px -10px 20px 20px rgba(2,8,17,1), 0px -20px 20px 20px rgba(2, 8, 17, 0.274);
+}
+.loader2{
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    aspect-ratio: 1;
+    display: none;
+}
+.loader2 img{width: 100%;}
+
+h1{
+    color: white;
+    grid-column: span 5;
+    text-align: center;
+    margin-top: 100px;
+}

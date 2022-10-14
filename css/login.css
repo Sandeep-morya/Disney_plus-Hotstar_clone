@@ -1,0 +1,58 @@
+@font-face {
+    font-family: "roboto";
+    src: url(../fonts/Roboto-Regular.ttf);
+}
+
+*{
+    box-sizing: border-box;
+}body{
+    margin: 0;
+    height: calc(auto+100px);
+    background: #141C29;
+    font-family: "roboto";
+    display: grid;
+    place-items: center;
+}
+body::-webkit-scrollbar{
+    background-color: transparent;
+    width: 10px;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: white;
+    border-radius: 3px;
+}
+body>img{
+    width: 40%;
+    margin-top: -40px;
+}
+form{
+    display: grid;
+    width: 30%;
+    gap: 10px;
+    padding: 20px;
+    background-color: white;
+    text-align: center;
+    margin-top: -50px;
+    border-radius: 5px;
+}
+form>input{
+    padding: 10px;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    background-color: rgb(233, 233, 233);
+    border-radius: 5px;
+}
+h2{
+    color: #141C29;
+}
+input[type=submit]{
+    background-color: #141C29;
+    color: white;
+    border: none;
+}
+a{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: rgb(4, 0, 255);
+}

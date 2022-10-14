@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disney+ Hotstar - Watch TV Shows, Movies, Specials, Live Cricket &amp;
+      Football</title>
+    <script src="https://kit.fontawesome.com/6f51b9c2b0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/result.css" />
+  </head>
+  <body>
+    <div class="navbar">
+        <div id="left_part">
+          <i class="fa-sharp fa-solid fa-bars fclr"></i>
+          <img class="logo"
+            src="https://secure-media.hotstarext.com/web-assets/prod/images/brand-logos/disney-hotstar-logo-dark.svg"
+          />
+          <span class="fclr tv">TV</span>
+          <span class="fclr mov">Movies</span>
+          <span class="fclr spr">Sports</span>
+          <span class="fclr">Disney+</span>
+          <img
+            style="width: 7%; margin-top: 1px"
+            src="https://www.hotstar.com/assets/4aa70ede8904e16b7630300c09219c8e.svg"
+            
+          />
+        </div>
+        <div id="right_part">
+          <div>
+            <input type="text" placeholder="Search" class="input_box" /><i
+              class="fa-solid fa-magnifying-glass fclr"
+            ></i>
+          </div>
+          <button>SUBSCRIBE</button>
+          <span class="fclr login">LOGIN</span>
+        </div>
+      </div>
+      <div class="ul-tv">
+        <a>Other Shows</a>
+        <a>Hotstar Specials</a>
+        <a>Quix</a>
+        <a>Star Jalsha</a>
+        <a>StarPlus</a>
+        <a>Star Vijay</a>
+        <a>Star Bharat</a>
+        <a>Asianet</a>
+        <a>more...</a>
+      </div>
+      <div class="ul-movies">
+        <a>Odia</a>
+        <a>Hindi</a>
+        <a>Bengali</a>
+        <a>Telugu</a>
+        <a>Malayalam</a>
+        <a>Tamil</a>
+        <a>Marathi</a>
+        <a>English</a>
+        <a>Kannada</a>
+        <a>Korean</a>
+        <a>Japanese</a>
+      </div>
+      <div class="ul-sports">
+        <a>Kabaddi</a>
+        <a>Football</a>
+        <a>Formula 1</a>
+        <a>Martial Arts</a>
+        <a>American Football</a>
+        <a>Cricket</a>
+        <a>Hockey</a>
+        <a>Tennis</a>
+        <a>Khelo India</a>
+        <a>Formula E</a>
+        <a>Athletics</a>
+        <a>Golf</a>
+      </div>
+  
+    <div class="controller">
+        <h3 class="message">Showing Results for <i class="query"></i></h3>
+        <select id="rating">
+            <option value="">Sort By Rating</option>
+            <option value="h2l">High to Low</option>
+            <option value="l2h">Low to High</option>
+        </select>
+        <select id="title_name">
+            <option value="">Sort By Name</option>
+            <option value="a2z">A to Z</option>
+            <option value="z2a">Z to A</option>
+        </select>
+        <select id="release">
+            <option value="">Sort By Date</option>
+            <option value="latest">Latest First</option>
+            <option value="oldest">Oldest Firs</option>
+        </select>
+    </div>
+    <div class="loader2"><img src="./loader2.svg" alt="" /></div>
+    <div id="append-movies">
+        <!-- <div class="card">
+            <img src="https://img1.hotstarext.com/image/upload/f_auto,t_web_vl_3x/sources/r1/cms/prod/8864/1348864-v-bb243b6549c4" alt="">
+            <div class="movie-des">
+                <p class="movie-title">Movies Name</p>
+            <p class="rating">IMDB - Rating</p>
+            <p class="release">Release Date</p>
+            </div>
+        </div> -->
+    </div>
+  </body>
+  <script type="module" src="result.js"></script>
+  <script src="./scripts/extra.js"></script>
+</html>
