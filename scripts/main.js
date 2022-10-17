@@ -1,5 +1,7 @@
-import {setup,header} from "./navbar.js";
+import {setup,login_page,working} from "./navbar.js";
 setup();
+document.querySelector("#signin").innerHTML=login_page();
+working();
 setTimeout(() => {
   document.querySelector(".loader").style.display = "none";
   let arr = [
@@ -96,4 +98,3 @@ setTimeout(function () {
 
   document.querySelector("#movies").style.display = "block";
 }, 6000);
-console.log(header())

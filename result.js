@@ -1,3 +1,10 @@
+import {setup,login_page,working} from "./scripts/navbar.js"
+/*---------- Navbar setup import ------------*/
+ setup();
+
+ document.querySelector("#signin").innerHTML=login_page();
+ working();
+
 let title_name=localStorage.getItem("request");
 let loader=document.querySelector(".loader2");
 let input_box=document.querySelector('.input_box');
@@ -72,9 +79,6 @@ function appendMovies(arr){
     localStorage.setItem("request","")
     localStorage.setItem("result",JSON.stringify(movies_data));
 }
-/*---------- Navbar setup import ------------*/
- import {setup} from "./scripts/navbar.js"
- setup();
 
 /*---------- oninput Event Listner -----------*/
 input_box.oninput=(e)=>{

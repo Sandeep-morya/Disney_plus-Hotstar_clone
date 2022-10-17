@@ -31,7 +31,7 @@ function appendMovies(array) {
     document.querySelector("#append-result").append(result);
   }
 }
-
+/* -----------  async function --------- */
 async function movieArr(x){
   try {
     let temp = await fetch(
@@ -56,13 +56,17 @@ document.querySelector(".navbar").addEventListener('click',function(){
   result.style.display="none"
   input_box.value=null;
 })
+
+/*-------- debounce function --------*/
 let id;
 function debounce(func,e){
   if(id)clearTimeout(id);
   id=setTimeout(function(){
     func(e);
-  },1000);
+  },800);
 }
+
+/*--------- set Event Listner --------- */
 
 input_box.oninput=function(e){
   result.style.display='block';

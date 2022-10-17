@@ -93,3 +93,28 @@ export function header(){
   <a>Golf</a>
   </div>`  
 }
+
+export function login_page(){
+  return `<div class="login_page">
+  <span id="close">&#10799;</span>
+  <div class="content">
+    <p>Login to continue</p>
+  <button id="go_signUp">Don't have an account-SignUp</button>
+  <p style="width:10% ; margin:-10% auto auto auto">or</p>
+  <div class="fill_number">
+    <span>+91</span>
+    <span style="color: rgba(255, 255, 255, 0.507);margin: 5px;">|</span>
+    <input type="text" placeholder="Enter Mobile Number">
+  </div>
+  </div>
+</div>`
+}
+
+export function working(){
+  document.querySelector("#close").addEventListener("click",e=>{
+    document.querySelector("#signin").style.display="none";
+  })
+  document.querySelector("#go_signUp").addEventListener('click',e=>{
+    location.href="./signup.html";
+  })
+}

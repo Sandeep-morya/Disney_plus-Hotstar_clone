@@ -93,6 +93,7 @@ h3{
 }
 .card img:hover{
     width: 12vw;
-    margin: -30px;z-index: 12;
+    margin: -20px;
+    z-index: 12;
     box-shadow: rgba(0, 0, 0, 0.705) 0px 54px 55px, rgba(0, 0, 0, 0.705) 0px -12px 30px, rgba(0, 0, 0, 0.705) 0px 4px 6px, rgba(0, 0, 0, 0.705) 0px 12px 13px, rgba(0, 0, 0, 0.705) 0px -3px 5px;
 }
