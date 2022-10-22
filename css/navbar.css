@@ -146,6 +146,8 @@ body::-webkit-scrollbar-thumb{
 }
 .result img{
     width: 45%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
     height: 100px;
 }
 .result > p{
