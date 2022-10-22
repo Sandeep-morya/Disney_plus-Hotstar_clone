@@ -2,30 +2,36 @@ function appendMovies(array) {
   document.querySelector("#append-result").innerHTML=null;
   //// Poster,Title,Type,Year
   for(let i=0; i<4; i++){
+    let x = `https://image.tmdb.org/t/p/w342${array[i].backdrop_path}`
+
+    if(array[i].backdrop_path==null){
+      continue;
+    }
     let result = document.createElement("div");
     result.className = "result";
     let img = document.createElement("img");
     img.className = "imageUrl";
-    img.src = array[i].Poster;
+    img.src = x;
     
     let details = document.createElement("p");
 
 
     let title = document.createElement("span");
     title.className = "movie_name";
-    title.textContent =array[i].Title;
+    title.textContent =array[i].title;
     let br=document.createElement("br");
 
     let type = document.createElement("span");
     type.className = "movie_type";
-    type.textContent = `${array[i].Type} , `;
+    type.textContent = `Movie\n`;
+    let br2=document.createElement("br");
 
     let year = document.createElement("span");
     year.className="movie_year";
-    year.textContent=array[i].Year;
+    year.textContent=array[i].release_date;
     
 
-    details.append(title, br, type,year);
+    details.append(title, br, type,br2,year);
     result.append(img, details);
 
     document.querySelector("#append-result").append(result);
@@ -35,10 +41,10 @@ function appendMovies(array) {
 async function movieArr(x){
   try {
     let temp = await fetch(
-      `http://www.omdbapi.com/?i=tt3896198&apikey=37f80a38&s=${x}`
+      `https://api.themoviedb.org/3/search/movie?api_key=d07a0aca26cbc2a87b8db46242e46675&query=${x}`
     );
     let res = await temp.json();
-    appendMovies(res.Search);
+    appendMovies(res.results);
   } catch (error) {
     console.log("wait",error)
   }

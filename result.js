@@ -16,7 +16,7 @@ set.addEventListener('click',function(e){
     m=false;
   }else{
     set.style.background='red';
-    m=true;
+    // m=true;
   }
 })
 
@@ -26,18 +26,14 @@ if (title_name != "") getData(title_name);
 function getData(title_name) {
   document.querySelector(".query").textContent = title_name;
   const moviesArr = async (x) => {
-    try {
+
       let temp = await fetch(
         `https://api.themoviedb.org/3/search/movie?api_key=d07a0aca26cbc2a87b8db46242e46675&query=${x}`
       );
       let res = await temp.json();
       appendMovies(res.results);
       //.log(res.Search)
-    } catch (error) {
-      let h1 = document.createElement("h1");
-      h1.textContent = "No Results Found";
-      document.querySelector("#append-movies").append(h1);
-    }
+
   };
   moviesArr(title_name);
 }
@@ -55,9 +51,13 @@ function CreateObject(image, title, release, rating) {
 function appendMovies(arr) {
   let movies_data = [];
   document.querySelector("#append-movies").innerHTML = null;
-  arr.forEach((el) => {
+  for(let el of arr) {
     // Poster,Title,Type,Year
-    let x = `https://image.tmdb.org/t/p/w342${el.poster_path}`;
+    let x = `https://image.tmdb.org/t/p/w342${el.backdrop_path}`;
+    let y = el.vote_average;
+    if(el.backdrop_path==null){
+      continue;
+    }
     let div = document.createElement("div");
     div.className = "card";
     let img = document.createElement("img");
@@ -68,24 +68,24 @@ function appendMovies(arr) {
 
     let rating = document.createElement("p");
     rating.className = "rating";
-    rating.textContent = el.vote_average;
+    rating.textContent = 'Rating: '+y;
 
     let year = document.createElement("p");
-    year.textContent = el.release_date;
+    year.textContent = el.overview;
     year.id = "release";
 
     let title = document.createElement("h3");
     title.textContent = el.title;
     title.className = "movie_title";
 
-    movie_des.append(title, year, rating);
+    movie_des.append(title, rating, year);
     div.append(img, movie_des);
 
     document.querySelector("#append-movies").append(div);
 
-    let obj = new CreateObject(x, el.title, el.release_date, el.vote_average);
+    let obj = new CreateObject(x, el.title, el.vote_average,el.overview);
     movies_data.push(obj);
-  });
+  };
   localStorage.setItem("request", "");
   localStorage.setItem("result", JSON.stringify(movies_data));
 }
@@ -123,18 +123,6 @@ document.querySelector("#rating").addEventListener("change", (e) => {
   sortedMovies(arr);
 });
 
-/* ---------------  Sorting by Release Date -------------- */
-document.querySelector("#release").addEventListener("change", (e) => {
-  let arr = JSON.parse(localStorage.getItem("result")) || [];
-  if (e.target.value == "oldest") {
-    arr.sort((a, b) => a.release - b.release);
-  }
-  if (e.target.value == "latest") {
-    arr.sort((a, b) => b.release - a.release);
-  }
-  sortedMovies(arr);
-});
-
 /* ---------------  Sorting by Title -------------- */
 document.querySelector("#title_name").addEventListener("change", (e) => {
   let arr = JSON.parse(localStorage.getItem("result")) || [];
@@ -161,10 +149,10 @@ function sortedMovies(arr) {
 
     let rating = document.createElement("p");
     rating.className = "rating";
-    rating.textContent = `Rating : ${el.rating}`;
+    rating.textContent = el.rating;
 
     let year = document.createElement("p");
-    year.textContent = el.release;
+    year.textContent = `Rating: ${el.release}`;
     year.id = "release";
 
     let title = document.createElement("h3");
@@ -178,7 +166,7 @@ function sortedMovies(arr) {
   });
 }
 let count = 1;
-window.onscroll = function (ev) {
+window.onscroll = function () {
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
     movies2(input_box.value,++count,m)
   }
@@ -187,24 +175,23 @@ window.onscroll = function (ev) {
 };
 
 async function movies2(x,y,z){
-  try {
+  
     let temp = await fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=d07a0aca26cbc2a87b8db46242e46675&query=${x}&page=${y}&include_adult=${z}`
     );
     let res = await temp.json();
     moreMovies(res.results);
     //.log(res.Search)
-  } catch (error) {
-    let h1 = document.createElement("h1");
-    h1.textContent = "No Results Found";
-    document.querySelector("#append-movies").append(h1);
-  }
+  
 };
 
 function moreMovies(arr) {
-  arr.forEach((el) => {
+  for(let el of arr){
     // Poster,Title,Type,Year
-    let x = `https://image.tmdb.org/t/p/w342${el.poster_path}`;
+    let x = `https://image.tmdb.org/t/p/w342${el.backdrop_path}`;
+    if(el.backdrop_path==null){
+      continue;
+    }
     let div = document.createElement("div");
     div.className = "card";
     let img = document.createElement("img");
@@ -215,19 +202,19 @@ function moreMovies(arr) {
 
     let rating = document.createElement("p");
     rating.className = "rating";
-    rating.textContent = el.vote_average;
+    rating.textContent ='Rating: '+ el.vote_average;
 
     let year = document.createElement("p");
-    year.textContent = el.release_date;
+    year.textContent = el.overview;
     year.id = "release";
 
     let title = document.createElement("h3");
     title.textContent = el.title;
     title.className = "movie_title";
 
-    movie_des.append(title, year, rating);
+    movie_des.append(title,rating ,year );
     div.append(img, movie_des);
 
     document.querySelector("#append-movies").append(div);
-  });
+  };
 }

@@ -5,12 +5,7 @@ working();
 setTimeout(() => {
   document.querySelector(".loader").style.display = "none";
   let arr = [
-    {
-      title: "Aashiqana 2",
-      des: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam autem voluptates ex amet dolores numquam dolorum neque ea consequatur optio? Voluptas iste quasi voluptatem enim? Amet impedit incidunt quae quasi?",
-      imageUrl:
-        "https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/6451/1376451-h-66d561b15e4e",
-    },
+    
     {
       title: "Liger - Saala CrossBread",
       des: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam autem voluptates ex amet dolores numquam dolorum neque ea consequatur optio? Voluptas iste quasi voluptatem enim? Amet impedit incidunt quae quasi?",
@@ -29,11 +24,18 @@ setTimeout(() => {
       imageUrl:
         "https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/4835/1374835-h-b4b9bc8dfef6",
     },
+    
     {
       title: "Warewolf By Night",
       des: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam autem voluptates ex amet dolores numquam dolorum neque ea consequatur optio? Voluptas iste quasi voluptatem enim? Amet impedit incidunt quae quasi?",
       imageUrl:
         "https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/6395/1366395-h-e01c59603785",
+    },
+    {
+      title: "Black Adam",
+      des: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam autem voluptates ex amet dolores numquam dolorum neque ea consequatur optio? Voluptas iste quasi voluptatem enim? Amet impedit incidunt quae quasi?",
+      imageUrl:
+        "https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/10/Black-Adam-poster.jpg",
     },
     {
       title: "Cadaver",
@@ -80,8 +82,8 @@ setTimeout(() => {
     sliders.push(slide);
 
     if (sliders.length) {
-      sliders[0].style.marginLeft = `calc(-${100 * (sliders.length - 5)}% - ${
-        30 * (sliders.length - 5)
+      sliders[0].style.marginLeft = `calc(-${100 * (sliders.length - 2)}% - ${
+        30 * (sliders.length - 2)
       }px)`;
     }
   };
@@ -91,10 +93,10 @@ setTimeout(() => {
   }
   setInterval(createSlide, 4000);
   document.querySelector(".loader2").style.display = "block";
-}, 3000);
+}, 2000);
 
 setTimeout(function () {
   document.querySelector(".loader2").style.display = "none";
 
   document.querySelector("#movies").style.display = "block";
-}, 6000);
+}, 4000);
