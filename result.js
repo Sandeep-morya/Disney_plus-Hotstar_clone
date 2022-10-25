@@ -54,7 +54,6 @@ function appendMovies(arr) {
   for(let el of arr) {
     // Poster,Title,Type,Year
     let x = `https://image.tmdb.org/t/p/w342${el.backdrop_path}`;
-    let y = el.vote_average;
     if(el.backdrop_path==null){
       continue;
     }
@@ -68,7 +67,7 @@ function appendMovies(arr) {
 
     let rating = document.createElement("p");
     rating.className = "rating";
-    rating.textContent = 'Rating: '+y;
+    rating.textContent = 'Rating: '+el.vote_average;
 
     let year = document.createElement("p");
     year.textContent = el.overview;
@@ -111,17 +110,7 @@ function debucing(loader, func, delay, e) {
   }, delay);
 }
 
-/* ---------------  Sorting by Rating-------------- */
-document.querySelector("#rating").addEventListener("change", (e) => {
-  let arr = JSON.parse(localStorage.getItem("result")) || [];
-  if (e.target.value == "l2h") {
-    arr.sort((a, b) => a.rating - b.rating);
-  }
-  if (e.target.value == "h2l") {
-    arr.sort((a, b) => b.rating - a.rating);
-  }
-  sortedMovies(arr);
-});
+
 
 /* ---------------  Sorting by Title -------------- */
 document.querySelector("#title_name").addEventListener("change", (e) => {
@@ -168,19 +157,25 @@ function sortedMovies(arr) {
 let count = 1;
 window.onscroll = function () {
   if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-    movies2(input_box.value,++count,m)
+    movies2(input_box.value,++count)
   }
 
   
 };
 
-async function movies2(x,y,z){
+async function movies2(x,y){
   
+   try{
     let temp = await fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=d07a0aca26cbc2a87b8db46242e46675&query=${x}&page=${y}&include_adult=${z}`
+      `https://api.themoviedb.org/3/search/movie?api_key=d07a0aca26cbc2a87b8db46242e46675&query=${x}&page=${y}&include_adult=false`
     );
     let res = await temp.json();
     moreMovies(res.results);
+   }
+   catch(e){
+    console.log('You are at the last page');
+
+   }
     //.log(res.Search)
   
 };
